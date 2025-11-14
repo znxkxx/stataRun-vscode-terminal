@@ -1,0 +1,123 @@
+{
+  "name": "stataRun-terminal",
+  "icon": "images/icon.png",
+  "displayName": "stataRun Terminal",
+  "description": "Run Stata Code in VS Code Terminal - Lightweight terminal-only version",
+  "version": "1.0.0",
+  "publisher": "znxkxx",
+  "engines": {
+    "vscode": "^1.25.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:stataRun.runAll",
+    "onCommand:stataRun.runSelection",
+    "onCommand:stataRun.runCurrent",
+    "onCommand:stataRun.runDown",
+    "onCommand:stataRun.runFront"
+  ],
+  "main": "./stataRun.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "stataRun.runAll",
+        "title": "stataRun: All Lines"
+      },
+      {
+        "command": "stataRun.runSelection",
+        "title": "stataRun: Selection"
+      },
+      {
+        "command": "stataRun.runCurrent",
+        "title": "stataRun: Current line"
+      },
+      {
+        "command": "stataRun.runDown",
+        "title": "stataRun: Downward Lines"
+      },
+      {
+        "command": "stataRun.runFront",
+        "title": "stataRun: Frontward Lines"
+      }
+    ],
+    "configuration": [
+      {
+        "type": "object",
+        "title": "stataRun",
+        "properties": {
+          "stataRun.vscodeTerminalBin": {
+            "type": "string",
+            "default": "stata-se",
+            "description": "Command to run Stata in terminal (e.g., stata-se, stata-mp, stata-ic)"
+          }
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "command": "stataRun.runSelection",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == stata",
+          "command": "stataRun.runAll",
+          "group": "stataRun"
+        },
+        {
+          "when": "resourceLangId == stata",
+          "command": "stataRun.runSelection",
+          "group": "stataRun"
+        },
+        {
+          "when": "resourceLangId == stata",
+          "command": "stataRun.runCurrent",
+          "group": "stataRun"
+        },
+        {
+          "when": "resourceLangId == stata",
+          "command": "stataRun.runDown",
+          "group": "stataRun"
+        },
+        {
+          "when": "resourceLangId == stata",
+          "command": "stataRun.runFront",
+          "group": "stataRun"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "echo 'No compilation needed for this extension'",
+    "package": "npx @vscode/vsce package",
+    "package-simple": "mkdir -p package && cp -r *.js *.json *.md images package/ && cd package && zip -r ../stataRun-terminal-1.0.0.vsix * && cd .. && rm -rf package",
+    "compile": "echo 'No compilation needed for this extension'",
+    "watch": "echo 'No compilation needed for this extension'",
+    "test": "echo 'No tests specified'"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.25.0",
+    "@vscode/vsce": "^2.30.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/znxkxx/stataRun-vscode-terminal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/znxkxx/stataRun-vscode-terminal/issues"
+  },
+  "keywords": [
+    "Stata",
+    "stataRun",
+    "terminal",
+    "vscode"
+  ],
+  "license": "MIT"
+}

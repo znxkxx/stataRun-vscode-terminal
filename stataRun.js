@@ -16,7 +16,7 @@ function ShowError() {
 }
 
 function activate(context) {
-    console.log('StataRun Terminal extension activated - Version 1.0.0');
+    console.log('StataRun Terminal extension activated - Version 1.0.1');
 
     let runAll = vscode.commands.registerCommand('stataRun.runAll', function () {
         let editor = CheckEditor(vscode.window.activeTextEditor);

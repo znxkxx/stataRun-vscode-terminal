@@ -58,8 +58,8 @@ module.exports = {
       activeTermOrNull.show(true);
 
       var cmd = config.get('vscodeTerminalBin');
-      // 检查文本长度，如果太长则保存到临时文件
-      const commandToSend = text.length > 1000 ? saveToFile(text) : text;
+      // 修改：总是将代码保存到临时文件执行，而不是只在长度超过1000时
+      const commandToSend = saveToFile(text);
       cmd += " " + commandToSend;
       activeTermOrNull.sendText(cmd, true);
     }
@@ -67,8 +67,8 @@ module.exports = {
       let activeTerm = activeTermOrNull;
       activeTerm.show(true);
       console.log(`StataRun|${text}`);
-      // 检查文本长度，如果太长则保存到临时文件
-      const commandToSend = text.length > 1000 ? saveToFile(text) : text;
+      // 修改：总是将代码保存到临时文件执行，而不是只在长度超过1000时
+      const commandToSend = saveToFile(text);
       activeTerm.sendText(commandToSend, true);
     }
   },

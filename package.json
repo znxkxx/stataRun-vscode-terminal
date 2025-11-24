@@ -3,7 +3,7 @@
   "icon": "images/icon.png",
   "displayName": "stataRun Terminal",
   "description": "Run Stata Code in VS Code Terminal - Lightweight terminal-only version",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "znxkxx",
   "engines": {
     "vscode": "^1.25.0"
@@ -96,7 +96,7 @@
   "scripts": {
     "vscode:prepublish": "echo 'No compilation needed for this extension'",
     "package": "npx @vscode/vsce package",
-    "package-simple": "mkdir -p package && cp -r *.js *.json *.md images package/ && cd package && zip -r ../stataRun-terminal-1.0.0.vsix * && cd .. && rm -rf package",
+    "package-simple": "mkdir -p package && cp -r *.js *.json *.md images package/ && cd package && zip -r ../stataRun-terminal-1.0.1.vsix * && cd .. && rm -rf package",
     "compile": "echo 'No compilation needed for this extension'",
     "watch": "echo 'No compilation needed for this extension'",
     "test": "echo 'No tests specified'"

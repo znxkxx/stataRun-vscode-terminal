@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2024-11-24
+
+### Changed
+- Modified code execution logic, all selected code now runs through temporary do files to ensure timely stopping on errors
+- Removed code length limit check, unified use of temporary file execution method
+
 ## [1.0.0] - 2024-01-01
 
 ### Added
